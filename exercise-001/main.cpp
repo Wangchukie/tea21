@@ -13,10 +13,11 @@ const int rodata = 42;
 
 auto main(int argc, char **argv) -> int
 {
-
-    fmt::print("Value of variable bss {}address of varaible bss{}\n", bss, fmt::ptr(&bss));
-    fmt::print("Value of variable data {}address of varaible data{}\n", data, fmt::ptr(&data));
-    fmt::print("Value of variable rodata {}address of varaible rodata{}\n", rodata, fmt::ptr(&rodata));
+    int stack = 3;
+    fmt::print("Value of variable bss:    {} address of variable bss:    {}\n", bss, fmt::ptr(&bss));
+    fmt::print("Value of variable data:   {} address of variable data:   {}\n", data, fmt::ptr(&data));
+    fmt::print("Value of variable rodata: {} address of variable rodata: {}\n", rodata, fmt::ptr(&rodata));
+    fmt::print("Value of variable stack:  {} address of variable stack:  {}\n", stack, fmt::ptr(&stack));
 
    
     /**
