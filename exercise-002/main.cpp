@@ -4,8 +4,10 @@
 #include "CLI/CLI.hpp"
 #include "config.h"
 
+
 auto main(int argc, char **argv) -> int
 {
+    int count = 20;
     /**
      * CLI11 is a command line parser to add command line options
      * More info at https://github.com/CLIUtils/CLI11#usage
@@ -14,19 +16,35 @@ auto main(int argc, char **argv) -> int
     try
     {
         app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
+        app.add_option("-C,--count", 
+                        count,
+                        fmt::format("count = {}",count))->default_val(20);
         app.parse(argc, argv);
+
+
     }
     catch (const CLI::ParseError &e)
     {
         return app.exit(e);
     }
 
+    std::vector<int> data(count);
+
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    for (int i = 0; i < count; ++i) {
+        data[i] = std::rand() %101;
+
+
+    }
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
      * More info at https://fmt.dev/latest/api.html
      */
-    fmt::print("Hello, {}!\n", app.get_name());
+    
+    fmt::print("Created a Vector with count = {}\n",count);
+    fmt::print("Created a Vector with data = {}",fmt::join(data,", "));
 
     /* INSERT YOUR CODE HERE */
 
