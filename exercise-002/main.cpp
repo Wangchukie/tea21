@@ -38,8 +38,7 @@ auto main(int argc, char **argv) -> int
     auto start = std::chrono::system_clock::now();
     std::sort(data.begin(),data.end());
     auto end = std::chrono::system_clock::now();
-    auto elapses = end - start;
-    /**
+    auto elapsed =(end - start);    /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
      * More info at https://fmt.dev/latest/api.html
@@ -47,7 +46,7 @@ auto main(int argc, char **argv) -> int
     
     fmt::print("Created a Vector with count = {}\n",count);
     fmt::print("Created a Vector with data = {}\n",fmt::join(data,", "));
-    fmt::print("Duaration: {}", elapses);
+    fmt::print("Duration: {}", elapsed);
 
     /* INSERT YOUR CODE HERE */
 
