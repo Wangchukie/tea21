@@ -34,9 +34,9 @@ auto main(int argc, char **argv) -> int
 
     for (int i = 0; i < count; ++i) {
         data[i] = std::rand() %101;
-
-
     }
+
+    std::sort(data.begin(),data.end());
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
