@@ -30,11 +30,17 @@ auto main(int argc, char **argv) -> int
 
     std::vector<int> data(count);
 
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    std::srand(std::time(nullptr));
 
     for (int i = 0; i < count; ++i) {
         data[i] = std::rand() %101;
     }
+    /**
+    for (auto& i : data){
+        i = distrib(gen);
+    }
+    
+    */
     auto start = std::chrono::system_clock::now();
     std::sort(data.begin(),data.end());
     auto end = std::chrono::system_clock::now();
