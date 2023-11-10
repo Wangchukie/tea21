@@ -14,6 +14,10 @@ bool LinkedList::insert_tail(LinkedListNode *node)
   if (nullptr == node) {
     return ret;
   }
+
+  LinkedList::m_tail->pNext = node;
+  LinkedList::m_tail = node;
+
   // insert your code here....
   return ret;
 }
@@ -24,6 +28,10 @@ bool LinkedList::insert_head(LinkedListNode *node)
   if (nullptr == node) {
     return ret;
   }
+
+  node->pNext = LinkedList::m_head;
+  LinkedList::m_head = node;
+
   // insert your code here....
   return ret;
 }
@@ -34,6 +42,10 @@ bool LinkedList::insert_after(LinkedListNode *loc, LinkedListNode *node)
   if ((nullptr == loc) || (nullptr == node)) {
     return ret;
   }
+
+  node->pNext = loc->pNext;
+  loc->pNext = node;
+
   // insert your code here ....
   return ret;
 }
@@ -44,6 +56,13 @@ bool LinkedList::insert_before(LinkedListNode *loc, LinkedListNode *node)
   if ((nullptr == loc) || (nullptr == node)) {
     return ret;
   }
+  LinkedListNode *locnode = LinkedList::m_head;
+
+  while(locnode->pNext != loc){
+
+  }
+
+  node->pNext = loc;
   // Insert your code here....
   return ret;
 }
@@ -51,6 +70,8 @@ bool LinkedList::insert_before(LinkedListNode *loc, LinkedListNode *node)
 bool LinkedList::remove(LinkedListNode *node)
 {
   bool ret = false;
+irgendwass->pNext = node->pNext;
+  node->pNext = nullptr;
   // insert your code here ...
   return ret;
 }
