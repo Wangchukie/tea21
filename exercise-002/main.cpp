@@ -35,8 +35,10 @@ auto main(int argc, char **argv) -> int
     for (int i = 0; i < count; ++i) {
         data[i] = std::rand() %101;
     }
-
+    auto start = std::chrono::system_clock::now();
     std::sort(data.begin(),data.end());
+    auto end = std::chrono::system_clock::now();
+    auto elapses = end - start;
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
@@ -44,7 +46,8 @@ auto main(int argc, char **argv) -> int
      */
     
     fmt::print("Created a Vector with count = {}\n",count);
-    fmt::print("Created a Vector with data = {}",fmt::join(data,", "));
+    fmt::print("Created a Vector with data = {}\n",fmt::join(data,", "));
+    fmt::print("Duaration: {}", elapses);
 
     /* INSERT YOUR CODE HERE */
 
