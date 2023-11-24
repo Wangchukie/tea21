@@ -11,10 +11,14 @@ struct Pixel
     uint8_t red;
     uint8_t green;
     uint8_t blue;
+    uint8_t alpha;
     uint8_t grey()
     {
         return (Pixel::red + Pixel::green + Pixel::blue)/3;
     };
+    void print(){
+        fmt::print("R: {}, G: {}, B:{}\n",Pixel::red, Pixel::green, Pixel::blue);
+    }
 };
 
 struct BITMAPFILEHEADER 
@@ -44,13 +48,19 @@ struct BITMAPINFOHEADER
 class BMP
 {
     public:
+    //BMP();
+    //~BMP();
     bool read(const std::string&  filename);
     bool write(const std::string&  filename);
-    /*
+    
+    
+    
+    
+    
     private:
-    BITMAPFILEHEADER file_header;
-    BITMAPINFOHEADER info_header;
-    */
+    BITMAPFILEHEADER m_file_header;
+    BITMAPINFOHEADER m_info_header;
+    
 };
 
 #endif
