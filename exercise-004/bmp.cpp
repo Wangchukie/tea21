@@ -36,7 +36,7 @@ void displayAsciiImage(const std::vector<uint8_t>& grey_buffer, int width, int h
 bool BMP::read(const std::string&  filename)
 {
     auto ret = false;
-    std::fstream infile; 
+    std::fstream infile;
     infile.open(filename, std::ios::binary | std::ios::in);
 
     if (!infile.is_open()) {
