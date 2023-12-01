@@ -1,35 +1,13 @@
-#include <fmt/chrono.h>
-#include <fmt/format.h>
-
-#include <iostream>
-#include <random>
-
-#include "CLI/CLI.hpp"
-#include "config.h"
-
-auto main(int argc, char **argv) -> int
-{
-    auto count{20};
-    /**
-     * CLI11 is a command line parser to add command line options
-     * More info at https://github.com/CLIUtils/CLI11#usage
-     */
-    CLI::App app{PROJECT_NAME};
-    try
-    {
-        app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
-        app.parse(argc, argv);
-    }
-    catch (const CLI::ParseError &e)
-    {
-        return app.exit(e);
-    }
-
-    /**
-     * The {fmt} lib is a cross platform library for printing and formatting text
-     * it is much more convenient than std::cout and printf
-     * More info at https://fmt.dev/latest/api.html
-     */
-    fmt::print("Hello, {}!\n", app.get_name());
-    return 0; /* exit gracefully*/
+#include <stdio.h>
+  int a;
+  int c = 0;
+  int b = 100;
+  const int d = 42;
+int main() {
+  printf("Address of a: %p value: %d \n",&a,a);
+  printf("Address of b: %p value: %d \n",&b,b);
+  printf("Address of c: %p value: %d \n",&c,c);
+  printf("Address of d: %p value: %d \n",&d,d);
+  printf("sizeof(int): %lu\n",sizeof(int));
+  return 0;
 }
